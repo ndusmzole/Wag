@@ -5,24 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Wager Calculator</title>
 </head>
 <body>
     <header>
-        <h1 class="main-heading">Wager Calculator</h1>
+        
     </header>
 
     <main>
+        <h1 class="main-heading">Wager Calculator</h1>
         <section class="input--section">
+            <div class="input">
+                <div class="form-group"><label for="init-value">Initial wager:</label>
+                    <input class="text-input" id="init-value" type="text" min="1" required>
+                    </div>
+        
+                    <div class="form-group"><label for="target-outCome">Target outcome:</label>
+                        <select name="target-outcome" class="text-input" id="target-outCome" required>
+                            <option value="">Select target outcome</option>
+                            <option value="1.2">1.2</option>
+                            <option value="1.4">1.4</option>
+                            <option value="1.5">1.5</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+        
+                    <div class="form-group"><label for="increase">% increase:</label>
+                        <select name="target-outcome" class="text-input" id="increase" required>
+                            <option value="">Select % increase to wager:</option>
+                            <option value="1.05">5%</option>
+                            <option value="1.1">10%</option>
+                            <option value="1.15">15%</option>
+                            <option value="1.2">20%</option>
+                            <option value="1.3">30%</option>
+                        </select>
+                    </div>
+            </div>
+            <div class="buttons" id="calc">
+                <button class="btn btn-calc">Calculate</button>
+            </div>
+            <div class="buttons hidden" id="result">
+                <button class="btn btn-won">Won</button>
+                <button class="btn btn-lost">Lost</button>
+            </div>
+            
 
         </section>
 
         <section class="output--section">
+            
+            <div class="results">
+                <p class="label">If won bet:</p>
+                <p class="result-wager won">Bet this amount if won</p>
+            </div>
+
+            <div class="results">
+                <p class="label">If lost bet:</p>
+                <p class="result-wager lost">Bet this lost if won</p>
+            </div>
             
         </section>
 
     </main>
     
 </body>
-<Script src="script.js"></Script>
+<!-- <Script src="script.js"></Script> -->
+<Script src="scripts/main.js"></Script>
 </html>
