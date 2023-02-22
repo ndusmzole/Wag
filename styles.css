@@ -35,6 +35,7 @@ h1 {
     margin: 10px;
     width: 100%;
     text-align: center;
+    font-size: 50px;
 }
 
 .input--section {
@@ -66,12 +67,24 @@ h1 {
     width: 300px;
     height: 40px;
     border: 0;
-    background-color: #228be6;
+   
     border-radius: 10px;
-    color: #e7f5ff;
+    color: #fff;
+    
     font-weight: 600;
     font-size: 18px;
     
+}
+.btn-calc {
+    background-color: #228be6;
+}
+.btn-won {
+    background-color: #099268;
+   
+}
+.btn-lost {
+    background-color: #c92a2a;
+
 }
 
 .output--section {
@@ -84,6 +97,20 @@ h1 {
     justify-items: center;
 
 }
+
+.label {
+    font-size: 14px;
+}
+
+.result-wager {
+    font-size: 48px;
+}
+
+.lost {
+    color:  #c92a2a;
+    
+}
+
 
 
 /* .container {

@@ -17,30 +17,50 @@ const ifLostEl = document.querySelector(".lost");
 
 //Variables
 // let totalAmount = 500.00;
-let wagerAmount = Number(initAmountEl.textContent);
-let increaseRate = increaseEl.value;
+let wagerAmount = 0;
+let increaseRate = 0;
 let lossCount = 0;
 let multiplier = 1;
-let target = targetOutcomeEl.value;
+let target = 0;
 
-//Setting the multiplier from the target out come
-if(target === 1.2){
-    multiplier = 1/0.2;
-}else if(target === 1.3){
-    multiplier = 1/0.3;
+//assign values
+initAmountEl.addEventListener("blur", function(){
+    wagerAmount = initAmountEl.value;
+    console.log(wagerAmount);
+})
 
-}else if(target === 1.4){
-    multiplier = 1/0.4;
-    
-}else if(target === 1.5){
-    multiplier = 1/0.5;
-    
-}else if(target === 1.8){
-    multiplier = 1/0.8;
-    
-}else {
-    multiplier = 1;    
-}
+increaseEl.addEventListener("change", function(){
+    increaseRate = increaseEl.value;
+    console.log(increaseRate);
+})
+
+targetOutcomeEl.addEventListener("change", function(){
+    target = targetOutcomeEl.value;
+    console.log(target, "target");
+    //Setting the multiplier from the target out come
+    if(target == 1.2){
+        multiplier = 1/0.2;
+    }else if(target === "1.3"){
+        multiplier = 1/0.3;
+
+    }else if(target === 1.4){
+        multiplier = 1/0.4;
+        
+    }else if(target === 1.5){
+        multiplier = 1/0.5;
+        
+    }else if(target === 1.8){
+        multiplier = 1/0.8;
+        
+    }else {
+        multiplier = 1;    
+        console.log("here");
+        console.log(target===1.2);
+    }
+})
+
+
+
 
 
 // won condition
@@ -49,20 +69,22 @@ const won = function(){
 
     console.log(target);
     console.log(targetOutcomeEl.value);
-    console.log(multiplier);
+    console.log(multiplier, "multiplier");
 
     lossCount = 0;
 
-    ifWonEl.textContent = wagerAmount;
-    ifLostEl.textContent = wagerAmount*5;
+    //toFixed(2) - Rounding to 2 decimal places
+    ifWonEl.textContent = wagerAmount.toFixed(2);
+    ifLostEl.textContent = (wagerAmount*multiplier).toFixed(2);
 };
 
 const lost = function(){
     wagerAmount *= multiplier;
+    console.log(wagerAmount);
     lossCount++;
 
-    ifLostEl.textContent = wagerAmount;
-    ifWonEl.textContent = wagerAmount / (multiplier ** lossCount);
+    ifLostEl.textContent = wagerAmount.toFixed(2);
+    ifWonEl.textContent = (wagerAmount / (multiplier ** lossCount)).toFixed(2);
 };
 
 // Hide an element
